@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper deep-purple darken-4">
+        <a class="brand-logo">SteamAuth</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <p>Auth code is:</p>
+        <input type="text" value="{{ code }}" id="authCode">
+        <a onclick="copyCode()" class="waves-effect waves-light btn deep-purple darken-4"><i class="material-icons right">content_copy</i>Copy</a>
+        <p id="timeCode" hidden>{{ timeLeft }}</p>
+        <div id="progressBar" class="deep-purple darken-4">
+          <div class="deep-purple lighten-1"></div>
+        </div>
+        <p id="timeRemaining"></p>
+      </div>
+      {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/countDownRefresh.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/copyText.js')}}"></script>
+  </body>
+</html>
