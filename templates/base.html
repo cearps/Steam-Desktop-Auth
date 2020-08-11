@@ -24,11 +24,28 @@
         <div id="progressBar" class="deep-purple darken-4">
           <div class="deep-purple lighten-1"></div>
         </div>
-        <p id="timeRemaining"></p>
+      </div>
+      <div class="row">
+        <a onclick="loadConfirmations()" class="waves-effect waves-light btn deep-purple darken-4">Load Confirmations</a>
+      </div>
+      <div class="row" style="display:none;" id="confirmationDiv">
+        <div id="accCanDiv" style="margin-top: 5px;">
+          <a onclick="acceptConfirmations()" class="waves-effect waves-light btn green accent-4">Accept Confirmations</a>
+          <a onclick="cancelConfirmations()" class="waves-effect waves-light btn red">Cancel Confirmations</a>
+        </div>
+        <div class="progress" id="loader">
+            <div class="indeterminate"></div>
+        </div>
+        <form action="POST">
+          <div class="row" id="confirmations">
+
+          </div>
+        </form>
       </div>
       {% block content %}{% endblock %}
     </div>
     <script src="{{ url_for('static', filename='js/countDownRefresh.js')}}"></script>
     <script src="{{ url_for('static', filename='js/copyText.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/loadConfirmations.js')}}"></script>
   </body>
 </html>

@@ -10,7 +10,17 @@ function progress(timeleft, timetotal, $element) {
   }, 1000);
   }
   else {
-    location.reload();
+    $.ajax({
+      url: "/_get_code/",
+      success: function(data){
+        timeVal = parseInt(JSON.stringify(data['timeLeft']));
+        authVal = (JSON.stringify(data['code'])).split("\"").join("");
+        $('#timeCode').html(timeVal);
+        $('#authCode').val(authVal);
+        var timeVar = timeVal;
+        progress(timeVar, timeVar, $('#progressBar'));
+      }
+    });
   }
 };
 var timeVar = parseInt($('#timeCode').text());

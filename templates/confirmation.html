@@ -1,0 +1,32 @@
+<div class="col s12 m4 l3">
+  <div class="card grey darken-4 black-text">
+    <label style="margin-left: 2%;">
+      <input class="confirmationChecker" type="checkbox" name="confirmationChecker" value="{{ confirmation["tradeID"] }}" />
+      <span>Select</span>
+   </label>
+   <ul class="collection with-header">
+     <li class="collection-header"><h4>Partner: {{ confirmation["partnerName"] }}</h4></li>
+     <li class="collection-item">PartnerID: {{ confirmation["partnerID"] }}</li>
+     <li class="collection-item">Confirmation: {{ confirmation["confirmationID"] }}</li>
+     <li class="collection-item">Trade: {{ confirmation["tradeID"] }}</li>
+
+     <li class="collection-item"><h6>Receiving:</h6></li>
+     {% if lengths["receiveLength"] == 0 %}
+       <li class="collection-item"> - None</li>
+     {% else %}
+     {% for item in confirmation["itemsReceiving"] %}
+       <li class="collection-item"> - {{ item }}</li>
+     {% endfor %}
+     {% endif %}
+
+     <li class="collection-item"><h6>Sending:</h6></li>
+     {% if lengths["sendLength"] == 0 %}
+       <li class="collection-item"> - None</li>
+     {% else %}
+     {% for item in confirmation["itemsSending"] %}
+       <li class="collection-item"> - {{ item }}</li>
+     {% endfor %}
+     {% endif %}
+   </ul>
+  </div>
+</div>
