@@ -15,4 +15,4 @@ Confirmation part is not the greatest... it works sometimes
 4. You should then be able to access your Steam Codes and confirmations via localhost:5000
 
 ## Preview of UI
-![preview image](https://gyazo.com/c3719b4469f06b74070ac6b7043070d5)
+![preview image](https://i.gyazo.com/c3719b4469f06b74070ac6b7043070d5.png)
